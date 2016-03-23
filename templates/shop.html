@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta content="IE=edge" http-equiv="X-UA-Compatible">
+	<meta content="initial-scale=1.0, width=device-width" name="viewport">
+	<title>点餐系统</title>
+
+	<!-- css -->
+	<link href="../static/css/base.min.css" rel="stylesheet">
+    <link href="../static/css/shopcar.css" rel="stylesheet">
+
+	<!-- ie -->
+	<!--[if lt IE 9]>
+		<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+		<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+	<![endif]-->
+
+</head>
+<body class="avoid-fout">
+
+	<header class="header">
+		<a class="header-logo">微信点餐系统 | Material Design </a>
+	</header>
+	<div class="content">
+		<div class="content-inner">
+			<div class="container">
+				<div class="card-wrap productBox">
+					<div class="row">
+                        {% for food in foods %}
+                            <div class="col-lg-3 col-md-4 col-sm-6">
+                                <div class="card">
+                                    <div class="card-main">
+                                        <!-- <div class="card-img">
+                                            <img alt="alt text" src="images/landscape.jpg">
+                                        </div> -->
+                                        <div class="card-inner">
+                                            <span class="productName">{{ food.name }}</span>
+                                            $<span class="productCost">{{ food.price }}元</span><br/>
+                                            <input type="hidden" id="productId" value="{{ food.id }}"/>
+                                            <span class="count">
+                                                购买数量：
+                                                <a class="reduce"><button>-</button></a>
+                                                <input class="productNum" type="text" readonly="readonly" value="1">
+                                                <a class="add"><button>+</button></a>
+                                            </span>
+                                            <button class="add_to_car btn btn-sm btn-blue waves-button waves-effect">加入购物车</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+					</div>
+                    <div aria-hidden="true" class="modal fade" id="modal" role="dialog" tabindex="-1">
+                            <div class="modal-dialog modal-xs">
+                                <div class="modal-content">
+                                    <div class="modal-heading">
+                                        <a class="modal-close" data-dismiss="modal">&times;</a>
+                                        <h2 class="modal-title">微信扫一扫支付</h2>
+                                    </div>
+                                    <div class="modal-inner">
+                                        <div class="qrcodePanel" id="qrcodeTable" style="margin:0 auto; top:30px; width:350px; height:350px;"></div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <p class="text-right">
+                                            <button class="btn btn-flat btn-alt" data-dismiss="modal" type="button">Close</button>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+				</div>
+
+                <dic class="carBox">
+                    <div class="carHead"></div>
+                    <form name="ShopCarForm" action='http://www.baidu.com' id="shop_car_form" method="post">
+                        <div id="CarList">
+
+                        </div>
+                        <div id="settlement">
+                            <div class="settlementBox">结算:$<span id="cost_all">0.00</span></div>
+                            <p><a  id="buy" class="btn btn-red waves-button waves-effect" data-toggle="modal" href="#modal">buy</a><a id="reset" class="btn btn-green waves-button waves-effect">reset</a></p>
+                        </div>
+                        <input type='submit' id='sub' name='formsubmit' value='submit'>
+                    </form>
+                </dic>
+			</div>
+		</div>
+	</div>
+    <script src="../static/js/src/webfont.js"></script>
+	<script src="../static/js/jquery.min.js"></script>
+	<script src="../static/js/base.min.js"></script>
+    <script src="../static/js/jquery.shopcar.js"></script>
+    <script src="../static/js/jquery.qrcode.min.js"></script>
+</body>
+</html>

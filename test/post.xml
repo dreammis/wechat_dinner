@@ -1,0 +1,11 @@
+<xml><ToUserName><![CDATA[gh_5bf5d13e0811]]></ToUserName>
+<FromUserName><![CDATA[oNxH2tyeqLxcqoPrWlY20jLGe3zs]]></FromUserName>
+<CreateTime>1429872249</CreateTime>
+<MsgType><![CDATA[event]]></MsgType>
+<Event><![CDATA[scancode_waitmsg]]></Event>
+<EventKey><![CDATA[www.zhbit.com]]></EventKey>
+<ScanCodeInfo>
+    <ScanType><![CDATA[qrcode]]></ScanType>
+    <ScanResult><![CDATA[1*1_4*2_3*3]]></ScanResult>
+</ScanCodeInfo>
+</xml>
